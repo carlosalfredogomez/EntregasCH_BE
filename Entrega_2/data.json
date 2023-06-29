@@ -1,0 +1,11 @@
+[
+  {
+    "title": "Camiseta",
+    "description": "Camiseta de algodón",
+    "price": 19.99,
+    "thumbnail": "img/camiseta.jpg",
+    "code": "5678",
+    "stock": 5,
+    "id": 1
+  }
+]
