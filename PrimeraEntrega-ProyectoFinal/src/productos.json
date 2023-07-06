@@ -1,0 +1,82 @@
+[
+  {
+    "title": "Producto de prueba 1",
+    "description": "Desc producto 1",
+    "price": 25.000,
+    "code": "pp1",
+    "stock": 10,
+    "id": 1
+  },
+  {
+    "title": "Producto de prueba 2",
+    "description": "Desc producto 2",
+    "price": 28.000,
+    "code": "pp2",
+    "stock": 15,
+    "id": 2
+  },
+  {
+    "title": "Producto de prueba 3",
+    "description": "Desc producto 3",
+    "price": 55.000,
+    "code": "pp3",
+    "stock": 20,
+    "id": 3
+  },
+  {
+    "title": "Producto de prueba 4",
+    "description": "Desc producto 4",
+    "price": 5.775,
+    "code": "pp4",
+    "stock": 25,
+    "id": 4
+  },
+  {
+    "title": "Producto de prueba 5",
+    "description": "Desc producto 5",
+    "price": 35.000,
+    "code": "pp5",
+    "stock": 30,
+    "id": 5
+  },
+  {
+    "title": "Producto de prueba 6 ",
+    "description": "Desc producto 6",
+    "price": 30.093,
+    "code": "pp6",
+    "stock": 35,
+    "id": 6
+  },
+  {
+    "title": "Producto de prueba 7",
+    "description": "Desc producto 7",
+    "price": 54.900,
+    "code": "pp7",
+    "stock": 100,
+    "id": 7
+  },
+  {
+    "title": "Producto de prueba 8",
+    "description": "Desc producto 8",
+    "price": 33.500,
+    "code": "pp8",
+    "stock": 80,
+    "id": 8
+  },
+  {
+    "title": "Producto de prueba 9",
+    "description": "Desc producto 9",
+    "price": 73.700,
+    "code": "pp9",
+    "stock": 60,
+    "id": 9
+  },
+  {
+    "title": "Producto de prueba 10",
+    "description": "Desc producto 10",
+    "price": 89.000,
+    "code": "pp10",
+    "stock": 45,
+    "id": 10
+  }
+]

@@ -24,22 +24,26 @@ class ProductManager {
             })
     }
 
+ 
+
     addProduct(data) {
         if (!data.title
             || !data.description
-            || !data.price
-            || !data.thumbnail
             || !data.code
-            || !data.stock) {
-            return "Error: Campos incorrectos"
+            || !data.price
+            || !data.status
+            || !data.stock
+            || !data.category) {
+            throw 'Error: Campos incorrectos'
         }
         const product = {
             title: data.title,
             description: data.description,
-            price: data.price,
-            thumbnail: data.password,
             code: data.code,
-            stock: data.stock
+            price: data.price,
+            status: data.status,
+            stock: data.stock,
+            thumbnails: data.thumbnails,
         }
         return this.getProducts()
             .then((products) => {
@@ -47,13 +51,12 @@ class ProductManager {
                 products.push(product)
                 return fs.promises.writeFile(this.path, JSON.stringify(products, null, 2))
                     .catch((error) => {
-                        return 'Error: No se pudo guardar el archivo de usuarios'
+                        return 'Error: No se pudo guardar el archivo'
                     })
             })
             .catch((error) => {
-                return 'Error: No se pudo leer el archivo de usuarios'
+                return 'Error: No se pudo leer el archivo'
             })
-
     }
 
     getProductById(id) {
@@ -68,19 +71,29 @@ class ProductManager {
     }
 
     updateProduct(id, data) {
+        console.log('update')
+        if (!data.title
+            || !data.description
+            || !data.code
+            || !data.price
+            || !data.status
+            || !data.stock
+            || !data.category) {
+            return 'Error: Campos incorrectos'
+        }
         return this.getProducts()
             .then((products) => {
                 const productIndex = products.findIndex(product => product.id === id)
-                if (productIndex === -1) {
-                    return
-                }
-                products[productIndex].title = data.title,
-                    products[productIndex].description = data.description,
-                    products[productIndex].price = data.price,
-                    products[productIndex].thumbnail = data.password,
-                    products[productIndex].code = data.code,
+                if (productIndex !== -1) {
+                    products[productIndex].title = data.title
+                    products[productIndex].description = data.description
+                    products[productIndex].code = data.code
+                    products[productIndex].price = data.price
+                    products[productIndex].status = data.status
                     products[productIndex].stock = data.stock
-                return fs.promises.writeFile(this.path, JSON.stringify(products, null, 2))
+                    products[productIndex].thumbnail = data.thumbnail
+                    return fs.promises.writeFile(this.path, JSON.stringify(products, null, 2))
+                }
             })
             .catch((error) => {
                 return 'Error: No se pudo actualizar el producto'
@@ -94,6 +107,9 @@ class ProductManager {
                 if (productIndex !== -1) {
                     products.splice(productIndex, 1)
                     return fs.promises.writeFile(this.path, JSON.stringify(products, null, 2))
+                } else {
+                    console.log('no existe');
+                    throw 'Error: No existe el producto'
                 }
             })
             .catch((error) => {
